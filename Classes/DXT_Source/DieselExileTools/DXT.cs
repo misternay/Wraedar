@@ -7208,10 +7208,20 @@ public static class DXT
 			if (IsLargeMapVisible)
 			{
 				LargeMapUiElement? largeMap = LargeMap;
-				return (((largeMap != null) ? new float?(largeMap.Zoom * 2.3633678f) : ((float?)null)) * LargeMap?.Scale) ?? 1f;
+                if (largeMap != null) {
+                    float diagonal = largeMap.Size.Length();
+                    // Radar default multiplier is 0.1738f. 
+                    // Formula: (Diagonal / 240) * Multiplier * Zoom
+                    return (diagonal / 240f) * 0.1738f * largeMap.Zoom;
+                }
+				return 1f;
 			}
 			MapUiElement? miniMap = MiniMap;
-			return (((miniMap != null) ? new float?(miniMap.Zoom * 2.3633678f) : ((float?)null)) * MiniMap?.Scale) ?? 1f;
+            if (miniMap != null) {
+                float diagonal = miniMap.Size.Length();
+                return (diagonal / 240f) * miniMap.Zoom;
+            }
+			return 1f;
 		}
 	}
 
