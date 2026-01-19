@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>DieselExileTools_GameHelper2</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>netcoreapp8.0</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="GameHelper">
+      <HintPath>..\..\GameHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.ImageSharp" />
+    <Reference Include="ImGui.NET" />
+    <Reference Include="ClickableTransparentOverlay" />
+  </ItemGroup>
+</Project>

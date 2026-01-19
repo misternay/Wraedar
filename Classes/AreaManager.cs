@@ -117,10 +117,14 @@ public class AreaManager {
                 .CreatePixelSpecificCloningProcessor(configuration, image, image.Bounds);
             resizer.Execute();
         }
-
-        //Core.Overlay.AddOrGetImagePointer(textureName, image, false, out var t);
-        var t = IntPtr.Zero; // Temporary fix
-        Texture = t;
+        // Save image to temp file and load via file-based API
+        var tempPath = Path.Combine(Path.GetTempPath(), textureName + ".png");
+        image.SaveAsPng(tempPath);
+        
+        nint texturePtr = default;
+        uint texW = 0, texH = 0;
+        Core.Overlay.AddOrGetImagePointer(tempPath, false, out texturePtr, out texW, out texH);
+        Texture = texturePtr;
         return true;
     }
     public Image<Rgba32>? GenerateDebugTexture() {
