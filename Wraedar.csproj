@@ -37,6 +37,10 @@
       <HintPath>$(MSBuildProjectDirectory)\GameOffsets.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="DieselExileTools">
+      <HintPath>$(MSBuildProjectDirectory)\DieselExileTools_GameHelper2.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

@@ -118,7 +118,8 @@ public class AreaManager {
             resizer.Execute();
         }
 
-        Core.Overlay.AddOrGetImagePointer(textureName, image, false, out var t);
+        //Core.Overlay.AddOrGetImagePointer(textureName, image, false, out var t);
+        var t = IntPtr.Zero; // Temporary fix
         Texture = t;
         return true;
     }
